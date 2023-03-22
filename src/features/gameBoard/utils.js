@@ -47,13 +47,10 @@ export const getPossiblePoints = (gameBoard, point) => {
   }
   return result;
 };
+
 export const collapse = (gameBoard, point) => {
-  const possiblePoints = getPossiblePoints(
-    gameBoard,
-    point,
-    new Array(100).fill(0)
-  );
-  if (possiblePoints.length === 1) return;
+  const possiblePoints = getPossiblePoints(gameBoard, point);
+  if (possiblePoints.length === 1) return gameBoard;
   possiblePoints.forEach((item) => (gameBoard[item] = 0));
   const collapseVertically = (gameBoard) => {
     const result = [];
@@ -65,9 +62,13 @@ export const collapse = (gameBoard, point) => {
       while (col.length < 10) {
         col.push(0);
       }
-      result.push(col);
+      for (let j = 0; j < 10; j++) result[i * 10 + j] = col[j];
     }
-    return result.flat(1);
+    return result;
   };
-  return collapseVertically(gameBoard);
+  const rotated = collapseVertically(gameBoard);
+  const result = [];
+  for (let i = 0; i < 10; i++)
+    for (let j = 0; j < 10; j++) result.push(rotated[i + j * 10]);
+  return result;
 };

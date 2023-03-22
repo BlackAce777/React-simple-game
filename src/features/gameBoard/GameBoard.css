@@ -10,6 +10,9 @@
   border: solid 1px grey;
   background-color: aqua;
 }
+.bg-white {
+  background-color: white;
+}
 .bg-red {
   background-color: red;
 }

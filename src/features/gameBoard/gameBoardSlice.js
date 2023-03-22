@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { randomArrayInRange, getPossiblePoints } from "./utils";
+import { randomArrayInRange, getPossiblePoints, collapse } from "./utils";
 
 const initialState = {
   gameBoard: randomArrayInRange(1, 5, 100),
@@ -19,7 +19,10 @@ export const gameBoardSlice = createSlice({
       state.gameBoard = randomArrayInRange(1, 5, 100);
       state.possiblePoints = [];
     },
-    onClick: (state, action) => {},
+    onClick: (state, action) => {
+      state.gameBoard = collapse(state.gameBoard, action.payload);
+      state.possiblePoints = [];
+    },
     onMove: (state, action) => {
       state.possiblePoints = getPossiblePoints(state.gameBoard, action.payload);
     },
