@@ -1,5 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
-import {randomArrayInRange, getPossiblePoints} from './utils' 
+import { createSlice } from "@reduxjs/toolkit";
+import { randomArrayInRange, getPossiblePoints } from "./utils";
 
 const initialState = {
   gameBoard: randomArrayInRange(1, 5, 100),
@@ -12,21 +12,19 @@ const initialState = {
 // code can then be executed and other actions can be dispatched. Thunks are
 // typically used to make async requests.
 export const gameBoardSlice = createSlice({
-  name: 'gameBoard',
+  name: "gameBoard",
   initialState,
   reducers: {
     initialize: (state) => {
       state.gameBoard = randomArrayInRange(1, 5, 100);
       state.possiblePoints = [];
     },
-    onClick: (state, action) => {
-      
-    },
+    onClick: (state, action) => {},
     onMove: (state, action) => {
-      state.possiblePoints = getPossiblePoints(state.gameBoard, action.payload, new Array(100).fill(0))
-    }
-  }
-})
+      state.possiblePoints = getPossiblePoints(state.gameBoard, action.payload);
+    },
+  },
+});
 
 export const { initialize, onClick, onMove } = gameBoardSlice.actions;
 

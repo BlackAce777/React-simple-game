@@ -12,7 +12,6 @@ export function GameBoard() {
   const [currentPosition, setCurrentPosition] = useState(-1);
 
   const handleMouseMove = (index) => {
-    console.log(index);
     setCurrentPosition(index);
   }
 
