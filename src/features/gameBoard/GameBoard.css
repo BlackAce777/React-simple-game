@@ -1,0 +1,30 @@
+.gameboard {
+  display: flex;
+  height: 700px;
+  width: 700px;
+  flex-wrap: wrap;
+}
+.cell {
+  height: 68px;
+  width: 68px;
+  border: solid 1px grey;
+  background-color: aqua;
+}
+.bg-red {
+  background-color: red;
+}
+.bg-aqua {
+  background-color: aqua;
+}
+.bg-blue {
+  background-color: blue;
+}
+.bg-green {
+  background-color: green;
+}
+.bg-yellow {
+  background-color: yellow;
+}
+.bg-grey {
+  background-color: grey;
+}
