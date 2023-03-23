@@ -60,7 +60,7 @@ export const collapse = (gameBoard, point) => {
         if (gameBoard[i + j * 10] !== 0) col.push(gameBoard[i + j * 10]);
       }
       while (col.length < 10) {
-        col.push(0);
+        col.unshift(0);
       }
       for (let j = 0; j < 10; j++) result[i * 10 + j] = col[j];
     }
