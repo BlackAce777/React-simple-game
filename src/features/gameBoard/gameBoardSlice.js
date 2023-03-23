@@ -20,10 +20,12 @@ export const gameBoardSlice = createSlice({
       state.possiblePoints = [];
     },
     onClick: (state, action) => {
+      if (state.gameBoard[action.payload] === 0) return;
       state.gameBoard = collapse(state.gameBoard, action.payload);
       state.possiblePoints = [];
     },
     onMove: (state, action) => {
+      if (state.gameBoard[action.payload] === 0) return;
       state.possiblePoints = getPossiblePoints(state.gameBoard, action.payload);
     },
   },

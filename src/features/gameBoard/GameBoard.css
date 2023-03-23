@@ -9,6 +9,7 @@
   width: 68px;
   border: solid 1px grey;
   background-color: aqua;
+  transition: background-color 0.2s;
 }
 .bg-white {
   background-color: white;
